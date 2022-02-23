@@ -3,7 +3,7 @@ import reactDom from "react-dom";
 
 class Counter extends React.Component {
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
   };
 
   hanldleIncrement = (product) => {
@@ -29,6 +29,12 @@ class Counter extends React.Component {
           className='btn btn-secondary btn-sm'
         >
           Increment
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)} //raisting event
+          className='btn btn-danger btn-sm m-2'
+        >
+          Delete
         </button>
       </div>
     );
