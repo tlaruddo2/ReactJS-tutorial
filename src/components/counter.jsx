@@ -3,23 +3,24 @@ import reactDom from "react-dom";
 
 class Counter extends React.Component {
   state = {
-    count: 1,
+    value: this.props.value,
   };
 
-  //solution1
   hanldleIncrement = (product) => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 }); //tell to react that we update
+    this.setState({ value: this.state.value + 1 });
   };
 
   doHandleIncrement = () => {
     this.hanldleIncrement({ id: 1 });
   };
 
-  //soltuion2 : arrow function
   render() {
+    console.log(this.props);
+
     return (
       <div>
+        <h4>Counter #{this.props.id}</h4>
         <span style={{ margin: 10 }} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
@@ -35,12 +36,12 @@ class Counter extends React.Component {
 
   getBadgeClasses() {
     let classes = "badge alert alert-";
-    classes += this.state.count === 0 ? "dark" : "danger";
+    classes += this.state.value === 0 ? "dark" : "danger";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count == 0 ? "Zero" : count;
   }
 }
