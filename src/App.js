@@ -6,7 +6,10 @@ function App() {
   const x = true
   return (
     <div className="container">
-      <Header/>
+      {/* <Header title='Hello'/> */}
+      <Header />
+      {/* type error */}
+      {/* <Header title = {1}/>   */}
 
     </div>
   );
